@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main() {
+    float distance, fare;
+    int InValidDistance = 0;
+
+    printf("--Welcome to the Taxi Fare Calculator--\n");
+    printf("      !Thailand only Edition!\n\n");
+
+    for (; !InValidDistance;) {
+        printf("Enter the distance in kilometers: ");
+        scanf("%f", &distance);
+        if (distance <= 0) {
+            printf("Error: Invalid distance. Distance must be greater than 0 na ja.\n\n");
+        } else {
+            InValidDistance = 1;
+        }
+    }
+    if (distance <= 1) {
+        fare =35.00;
+    } else if (distance <= 10) {
+        fare =35.00 + (distance - 1) * 6.50;
+    } else if (distance <= 20) {
+        fare =35.00 + 9 * 6.50 + (distance - 10) * 7.00;
+    } else if (distance <= 40) {
+        fare =35.00 + 9 * 6.50 + 10 * 7.00 + (distance - 20) * 8.00;
+    } else if (distance <= 60) {
+        fare =35.00 + 9 * 6.50 + 10 * 7.00 + 20 * 8.00 + (distance - 40) * 8.50;
+    } else if (distance <= 80) {
+        fare =35.00 + 9 * 6.50 + 10 * 7.00 + 20 * 8.00 + 20 * 8.50 + (distance - 60) * 9.00;
+    } else {
+        fare =35.00 + 9 * 6.50 + 10 * 7.00 + 20 * 8.00 + 20 * 8.50 + 20 * 9.00 + (distance - 80) *10.50;
+    }
+    printf("\n----------------------------------------\n");
+    printf("Taxi Fare Summary:\n");
+    printf("Distance: %.2f kilometers\n",distance);
+    printf("Total Fare: %.2f baht\n",fare);
+    printf("----------------------------------------\n");
+
+    return 0;
+}
